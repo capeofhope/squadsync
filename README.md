@@ -11,3 +11,6 @@ Points to be remembered:
 - npx prisma generate - to generate new schema model
 - npx prisma db push -to push the new schemas
 - npx prisma studio -to let you see what is inside your db
+- npm i axios- for routing and using different methods
+- npm i uuid-
+- npm i -D types/uuid-
