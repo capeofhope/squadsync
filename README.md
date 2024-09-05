@@ -13,4 +13,5 @@ Points to be remembered:
 - npx prisma studio -to let you see what is inside your db
 - npm i axios- for routing and using different methods
 - npm i uuid-
-- npm i -D types/uuid-
+- npm i -D types/uuid
+- npm i zustand
