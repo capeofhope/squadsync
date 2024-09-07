@@ -7,11 +7,12 @@ import { ScrollArea } from "../ui/scroll-area";
 import { NavigationItem } from "./navigation-item";
 import { ModeToggle } from "../mode-toggle";
 import { UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 
 export const NavigationSidebar = async () => {
   const profile = await currentProfile();
-  if (!profile) {
-    return redirect("/");
+  if(!profile){
+    return auth().redirectToSignIn();
   }
   const servers = await db.server.findMany({
     where: {
