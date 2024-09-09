@@ -15,3 +15,4 @@ Points to be remembered:
 - npm i uuid-
 - npm i -D types/uuid
 - npm i zustand
+- npm i query-string
