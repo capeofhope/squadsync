@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db"; 
-import { MemberRole } from "@prisma/client";
+import { ChannelType, MemberRole } from "@prisma/client";
 
 export async function POST(req:Request) {
     try {
@@ -20,7 +20,8 @@ export async function POST(req:Request) {
                 invitecode:uuidv4(),
                 channels:{
                     create:[
-                        {name:"general",profileId:profile.id}
+                        {name:"general",profileId:profile.id,type:ChannelType.TEXT
+                        }
                     ]
                 },
                 members:{
