@@ -7,6 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../ui/dialog";
+import qs from "query-string"
 import { useModal } from "@/hooks/use-modal-store";
 import { Button } from "../ui/button";
 import { useOrigin } from "@/hooks/use-origin";
@@ -23,7 +24,14 @@ export const LeaveServerModal = () => {
   const [isLoading, setIsLoading] = useState(false);
   const onClick = async () => {
     try {
-      await axios.patch(`/api/servers/${server?.id}/leave`);
+      setIsLoading(true);
+      const url = qs.stringifyUrl({
+        url: `/api/servers/${server?.id}/leave`,
+        query: {
+          serverId: server?.id,
+        },
+      });
+      await axios.delete(url);
       onClose();
       router.refresh();
       router.push("/");
