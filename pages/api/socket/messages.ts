@@ -42,8 +42,9 @@ export default async function handler(req:NextApiRequest,res:NextApiResponseServ
         const channel=await db.channel.findFirst({
             where:{
                 id:channelId as string,
-                serverId:serverId as string}
-        })
+                serverId:serverId as string,
+            }
+        });
         if(!channel){
             return res.status(404).json({message:"Channel not found."})
         }
