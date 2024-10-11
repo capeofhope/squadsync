@@ -15,6 +15,7 @@ import { Form, FormControl, FormField, FormItem } from "../ui/form";
 import axios from "axios";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { useModal } from "@/hooks/use-modal-store";
 
 interface ChatItemProps {
   id: string;
@@ -53,6 +54,8 @@ export const ChatItem = ({
   socketQuery,
   socketUrl,
 }: ChatItemProps) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const { onOpen } = useModal();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -60,13 +63,13 @@ export const ChatItem = ({
     },
   });
   const isLoading = form.formState.isSubmitting;
-  const onSubmit = async(values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const url = qs.stringifyUrl({
         url: `${socketUrl}/${id}`,
         query: socketQuery,
       });
-      await axios.patch(url,values);
+      await axios.patch(url, values);
     } catch (error) {
       console.log(error);
     }
@@ -76,8 +79,6 @@ export const ChatItem = ({
       content: content,
     });
   }, [content]);
-  const [isEditing, setIsEditing] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
   useEffect(() => {
     const handleKeyDown = (event: any) => {
       if (event.key === "ESCAPE" || event.keyCode === 27) {
@@ -206,7 +207,12 @@ export const ChatItem = ({
           )}
           <ActionTooltip label="Delete">
             <Trash
-              onClick={() => setIsDeleting(true)}
+              onClick={() =>
+                onOpen("deleteMessage", {
+                  apiUrl: `${socketUrl}/${id}`,
+                  query: socketQuery,
+                })
+              }
               className="h-4 w-4 ml-auto cursor-pointer text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition"
             />
           </ActionTooltip>
