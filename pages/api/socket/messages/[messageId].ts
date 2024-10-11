@@ -5,7 +5,7 @@ import { MemberRole } from "@prisma/client";
 import { NextApiRequest } from "next";
 
 export default async function handler(req:NextApiRequest,res:NextApiResponseServerIo){
-    if(req.method!=="DELETE" && req.method!="PATCH"){
+    if(req.method!=="DELETE" && req.method!=="PATCH"){
         return res.status(405).json({error:"Method not allowed"});
     }
     try {
@@ -102,7 +102,7 @@ export default async function handler(req:NextApiRequest,res:NextApiResponseServ
                     id:messageId as string,
                 },
                 data:{
-                    content
+                    content:content
                 },include:{
                     member:{
                         include:{
@@ -112,7 +112,7 @@ export default async function handler(req:NextApiRequest,res:NextApiResponseServ
                 }
             });  
         }
-        const updateKey=`chat:${channelId}:message:update`;
+        const updateKey=`chat:${channelId}:messages:update`;
         res?.socket?.server?.io?.emit(updateKey,message);
         return res.status(200).json(message);
     } catch (error) {
