@@ -5,6 +5,7 @@ Tools and technologies used:
 - Shadcn UI
 - Tailwind CSS
 - NextJS
+- LiveKit
 
 Points to be remembered:
 
@@ -23,3 +24,4 @@ Points to be remembered:
 - npm i emoji-mart @emoji-mart/data @emoji-mart/react
 - npm i @tanstack/react-query
 - npm i date-fns
+- npm install livekit-server-sdk @livekit/components-react @livekit/components-styles --save
