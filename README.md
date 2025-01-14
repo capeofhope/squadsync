@@ -12,6 +12,10 @@ SquadSync is a collaborative project management tool designed to help teams stay
 - [Contributing](#contributing)
 - [References](#references)
 
+## Deployment
+
+Frontend is deployed at [squadsync-production.up.railway.app](https://squadsync-production.up.railway.app).
+
 ## Features
 
 - Real-time collaboration
@@ -114,3 +118,4 @@ We welcome contributions! Please follow these steps:
 - [LiveKit Documentation](https://docs.livekit.io/)
 - [Axios Documentation](https://axios-http.com/docs/intro)
 - [React Router Documentation](https://reactrouter.com/web/guides/quick-start)
+
