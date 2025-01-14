@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # SquadSync
+=======
+#SquadSync
+##Live Project-squadsync-production.up.railway.app
+Tools and technologies used:
+>>>>>>> e62f1981ed64c4161bf17da59b042af310448b0d
 
 SquadSync is a collaborative project management tool designed to help teams stay organized and efficient. This README provides an overview of the project, including installation instructions, project structure, features, and contributing guidelines.
 
 ## Table of Contents
 
+<<<<<<< HEAD
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Installation](#installation)
@@ -114,3 +121,21 @@ We welcome contributions! Please follow these steps:
 - [LiveKit Documentation](https://docs.livekit.io/)
 - [Axios Documentation](https://axios-http.com/docs/intro)
 - [React Router Documentation](https://reactrouter.com/web/guides/quick-start)
+=======
+- use cn for resolving class conflicts on different states of the component.
+- folder named as - (folder_name) are organisation folder and doesn't contribute in routes.
+- npx prisma generate - to generate new schema model
+- npx prisma db push -to push the new schemas
+- npx prisma studio -to let you see what is inside your db
+- npm i axios- for routing and using different methods
+- npm i uuid-
+- npm i -D types/uuid
+- npm i zustand
+- npm i query-string
+- npm i socket.io
+- npm i socket.io-client
+- npm i emoji-mart @emoji-mart/data @emoji-mart/react
+- npm i @tanstack/react-query
+- npm i date-fns
+- npm install livekit-server-sdk @livekit/components-react @livekit/components-styles --save
+>>>>>>> e62f1981ed64c4161bf17da59b042af310448b0d
